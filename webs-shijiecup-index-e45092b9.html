@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>走近世界杯 · 简明指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2d3d;
+            line-height: 1.7;
+            padding: 1.5rem 1rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 开场 — 短句，像引子 */
+        .opening {
+            margin: 0.8rem 0 2rem 0;
+            font-size: 1.9rem;
+            font-weight: 300;
+            letter-spacing: 0.012em;
+            color: #105a5f;
+            border-left: 6px solid #2e9b90;
+            padding-left: 1.2rem;
+            line-height: 1.3;
+        }
+
+        .opening span {
+            font-weight: 500;
+            background: linear-gradient(135deg, #116b66, #2a9d8f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* 承接段落 — 自然引入 */
+        .intro-text {
+            background: white;
+            padding: 1.8rem 2rem;
+            border-radius: 32px 12px 32px 12px;
+            box-shadow: 0 8px 24px rgba(17, 107, 102, 0.06);
+            margin-bottom: 2.2rem;
+            font-size: 1.1rem;
+            color: #1f3b44;
+            border: 1px solid #d9ecec;
+        }
+
+        .intro-text p + p {
+            margin-top: 1.2rem;
+        }
+
+        .intro-text a {
+            color: #117a72;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: #83cfc7;
+            font-weight: 500;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #0b524d;
+            text-decoration-color: #0b524d;
+        }
+
+        /* 网格卡片 — 特点清单 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2.5rem 0 2.2rem;
+        }
+
+        .card-item {
+            background: white;
+            padding: 1.6rem 1.4rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 40, 40, 0.04);
+            transition: all 0.2s ease;
+            border: 1px solid #e3f2f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(29, 112, 106, 0.08);
+            border-color: #b0dfda;
+        }
+
+        .card-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f5c58;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-item h3::before {
+            content: "•";
+            color: #2a9d8f;
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-right: 4px;
+        }
+
+        .card-item p {
+            font-size: 0.95rem;
+            color: #2f4752;
+            margin-top: auto;
+        }
+
+        /* 辅助场景 + 温和提示 */
+        .scene-note {
+            background: #e2f3f1;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 2.2rem 0;
+            border-left: 5px solid #188277;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 0.8rem 2rem;
+        }
+
+        .scene-note p {
+            flex: 1;
+            min-width: 180px;
+            font-size: 1rem;
+            color: #1b4141;
+        }
+
+        .scene-note p strong {
+            color: #0f5e58;
+        }
+
+        .badge-tip {
+            display: inline-block;
+            background: #ffffffc4;
+            backdrop-filter: blur(2px);
+            padding: 0.25rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #105a54;
+            border: 1px solid #9ad6cf;
+            font-weight: 450;
+            white-space: nowrap;
+        }
+
+        /* FAQ 摘要 — 克制，只列两个 */
+        .faq-mini {
+            margin: 1.8rem 0 2.2rem;
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            box-shadow: 0 6px 12px rgba(0, 55, 50, 0.02);
+            border: 1px solid #d2eae7;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e2f0ed;
+            padding: 1rem 0;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1a6b63;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            color: #2a9d8f;
+            font-size: 1.3rem;
+            line-height: 1;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "▾";
+        }
+
+        .faq-mini .answer {
+            margin-top: 0.7rem;
+            padding-left: 0.2rem;
+            font-size: 0.95rem;
+            color: #2b4750;
+        }
+
+        /* 温和结尾 — 类似短签 */
+        .gentle-footer {
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid #cee9e4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .gentle-footer p {
+            color: #306a66;
+            font-size: 0.95rem;
+            font-weight: 350;
+            letter-spacing: 0.01em;
+        }
+
+        .gentle-footer .meta {
+            color: #609b94;
+            font-size: 0.85rem;
+        }
+
+        .gentle-footer a {
+            color: #117a72;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #92ccc4;
+            font-weight: 450;
+            transition: color 0.15s;
+        }
+
+        .gentle-footer a:hover {
+            color: #0b4d49;
+        }
+
+        /* 移动端友好 */
+        @media (max-width: 560px) {
+            body {
+                padding: 1rem 0.8rem 2.5rem;
+            }
+
+            .opening {
+                font-size: 1.6rem;
+                padding-left: 0.9rem;
+            }
+
+            .intro-text {
+                padding: 1.5rem 1.2rem;
+                border-radius: 28px 8px 28px 8px;
+                font-size: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card-item {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .scene-note {
+                padding: 1.4rem 1.2rem;
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .gentle-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .card-grid {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 开场短句：像拉起幕布 -->
+        <div class="opening">
+            一场赛事，<span>不止九十分钟</span>。
+        </div>
+
+        <!-- 承接段落：简明指南 + 自然嵌入链接 -->
+        <div class="intro-text">
+            <p>
+                从小组赛到决赛，每届大赛都藏着无数叙事。了解赛程、队伍与场地只是第一步；更值得花时间感受的，是那些瞬息之间的战术转换与球场上的呼吸节奏。想快速跟上最新动态，不妨先看看 <a href="https://webs-shijiecup.com">世界杯</a> 的整体框架——那里汇集了阶段概览和关键背景，适合在赛前安静浏览。
+            </p>
+            <p>
+                无论你是初次完整关注，还是想找回过去几届的脉络，慢慢翻看总会发现一些被忽略的细节。比赛之外，许多与球迷文化、主办城市有关的故事同样耐人寻味。
+            </p>
+        </div>
+
+        <!-- 特点列表：网格卡片 -->
+        <div class="card-grid">
+            <div class="card-item">
+                <h3>赛程节奏</h3>
+                <p>小组赛每天多场，淘汰赛逐步收紧。提前标记你关心的时段，避免错过关键较量。</p>
+            </div>
+            <div class="card-item">
+                <h3>球队档案</h3>
+                <p>主力阵容、战术倾向、近期状态——每支队伍都有自己的演进轨迹，值得对比观察。</p>
+            </div>
+            <div class="card-item">
+                <h3>场地与时区</h3>
+                <p>主办城市的气候、球场容量、时差影响。这些因素常常微妙地改变比赛走向。</p>
+            </div>
+            <div class="card-item">
+                <h3>历史回望</h3>
+                <p>经典决赛、传奇进球、黑马之旅。过去几十届的沉淀为当下增添了厚度。</p>
+            </div>
+        </div>
+
+        <!-- 场景提示 + 访问提醒（温和地） -->
+        <div class="scene-note">
+            <p>
+                <strong>📌 适合慢慢翻阅</strong><br>
+                赛前或中场休息时，可以用碎片时间浏览内容。不必一次读完，分几次反而更有余味。
+            </p>
+            <span class="badge-tip">留意页面更新节奏</span>
+        </div>
+
+        <!-- FAQ 摘要（只列两个，克制） -->
+        <div class="faq-mini">
+            <details>
+                <summary>从哪里了解小组出线形势？</summary>
+                <div class="answer">
+                    多数赛事页面都有积分表与实时排名，结合剩余赛程推算可能性。注意同分时的净胜球与对战关系。
+                </div>
+            </details>
+            <details>
+                <summary>页面上的信息多久刷新？</summary>
+                <div class="answer">
+                    通常跟随比赛进程更新，但建议以官方赛程和实时数据源为最准。本指引仅作辅助参考。
+                </div>
+            </details>
+        </div>
+
+        <!-- 温和结尾：带一点叙述余味 -->
+        <div class="gentle-footer">
+            <p>
+                慢慢看，不必赶。<br>
+                一届赛事的意义往往在结束后才慢慢浮现。
+            </p>
+            <span class="meta">
+                <a href="https://webs-shijiecup.com">世界杯</a> · 索引页
+            </span>
+        </div>
+    </div>
+</body>
+</html>
